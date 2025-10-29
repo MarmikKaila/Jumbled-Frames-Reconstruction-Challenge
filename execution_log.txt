@@ -1,0 +1,15 @@
+============================================================
+VIDEO FRAME RECONSTRUCTION - EXECUTION LOG
+============================================================
+
+Algorithm: AI (ResNet50) + TSP (LKH-3 Solver)
+
+Total execution time:        57.42 seconds
+  - Feature extraction:      18.67 seconds
+  - Matrix calculation:      15.85 seconds
+  - TSP solving:             15.65 seconds
+
+Frames processed:            300
+Comparisons performed:       44,850
+Output FPS:                  30
+Output resolution:           1920x1080

@@ -10,7 +10,7 @@ jumbled_video.mp4
 
 # Output files (don't need to be tracked)
 reconstructed_video.mp4
-execution_log.txt
+
 
 # VS Code settings
 .vscode/
