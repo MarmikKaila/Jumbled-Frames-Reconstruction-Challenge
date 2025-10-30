@@ -33,8 +33,8 @@ The approach combines **AI-driven visual understanding** with **classical optimi
 Open your terminal and clone this GitHub repository to your local machine:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
-cd YOUR-REPOSITORY-NAME
+git clone https://github.com/MarmikKaila/Jumbled-Frames-Reconstruction-Challenge.git
+cd Jumbled-Frames-Reconstruction-Challenge
 ```
 
 ### **2️. Create the requirements.txt File**
@@ -198,7 +198,7 @@ Detailed explanation of the reconstruction algorithm and its optimization steps 
 **Objective:** Restore temporal order in shuffled single-shot videos using AI and computer vision.  
 
 
-**GitHub:** [https://github.com/your-username](https://github.com/your-username)
+**GitHub:** [https://github.com/MarmikKaila](https://github.com/MarmikKaila)
 
 ---
 
