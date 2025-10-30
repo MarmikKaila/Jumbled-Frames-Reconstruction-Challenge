@@ -18,7 +18,7 @@ print("Model loaded successfully.")
 frames = []
 feature_vectors = []
 
-# ---------------- FEATURE EXTRACTION ---------------- #
+# FEATURE EXTRACTION #
 def extract_features(frame):
     """Extract combined AI + perceptual features"""
     img_resized = cv2.resize(frame, (224, 224))
@@ -50,7 +50,7 @@ def calculate_ai_difference(pair):
     return 0.3 * cosine_dist + 0.7 * ssim_diff
 
 
-# ---------------- HYBRID GREEDY + LOCAL REFINEMENT ---------------- #
+# HYBRID GREEDY + LOCAL REFINEMENT #
 def order_frames_hybrid(diff_matrix):
     """Hybrid frame ordering using greedy + local optimization"""
     num_frames = len(diff_matrix)
@@ -64,7 +64,7 @@ def order_frames_hybrid(diff_matrix):
         ordered.append(next_idx)
         remaining.remove(next_idx)
 
-    # --- Safe local refinement (2-opt) ---
+    # Safe local refinement (2-opt) 
     improved = True
     while improved:
         improved = False
@@ -94,7 +94,7 @@ def auto_correct_direction(frames, ordered_indices, feature_vectors):
     return ordered_indices
 
 
-# ---------------- MAIN PIPELINE ---------------- #
+# MAIN PIPELINE #
 def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     video_input_path = os.path.join(script_dir, "jumbled_video.mp4")
@@ -140,7 +140,7 @@ def main():
 
     ordered_indices = order_frames_hybrid(diff_matrix)
 
-    # --- Detect and fix reversed sequence ---
+    # Detect and fix reversed sequence 
     ordered_indices = auto_correct_direction(frames, ordered_indices, feature_vectors)
 
     print("\nWriting reconstructed video...")
@@ -149,7 +149,7 @@ def main():
         out.write(frames[idx])
     out.release()
 
-    print(f"\n✅ Reconstructed video saved at: {video_output_path}")
+    print(f"\nReconstructed video saved at: {video_output_path}")
 
 
 if __name__ == "__main__":
