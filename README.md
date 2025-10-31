@@ -190,7 +190,7 @@ JumbledVideoReconstruction/
 
 
 
-##  **Documentation**
+##  **Algorithm Explaination Documentation**
 
 Detailed explanation of the reconstruction algorithm and its optimization steps can be found in:  
 📄 [`docs/Algorithm-Explanation.md`](docs/Algorithm-Explanation.md)
@@ -218,7 +218,7 @@ Detailed explanation of the reconstruction algorithm and its optimization steps 
 **Name:** Marmik Kaila 
 
 
-**Project:** Jumbled Frame Reconstruction Chellange
+**Project:** Jumbled Frame Reconstruction Challange
 
 
 **Objective:** Restore temporal order in shuffled single-shot videos using AI and computer vision.  
