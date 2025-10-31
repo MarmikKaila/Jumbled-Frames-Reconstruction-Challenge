@@ -101,8 +101,36 @@ Minimize  ∑ (1 - Similarity(F_P[i], F_P[i+1]))  for all i = 1 to n-1
 | **Robustness** | Auto reverse detection | Prevents flipped sequence output |
 
 
+## 6. **Time and Space Complexity Analysis**
 
-## 6️. Results and Observations
+| **Step** | **Code Section** | **Description / Purpose** | **Time Complexity** | **Space Complexity** |
+|-----------|------------------|----------------------------|---------------------|----------------------|
+| **1️. Frame Extraction** | `cap = cv2.VideoCapture(video_input_path)`<br>`for _ in tqdm(range(total_frames)):` | Reads all frames from **jumbled_video.mp4** and stores them in a list `frames`. Maintains original resolution and FPS. | O(n) | O(n × w × h × 3) |
+| **2️. Deep Feature Extraction (ResNet50)** | `extract_features(frame)` | Uses **ResNet50 (ImageNet pre-trained)** to extract **2048-D embeddings** per frame for semantic understanding. | O(n × F) | O(n × 2048) |
+| **3️. Structural Similarity (SSIM)** | Inside `calculate_ai_difference(pair)` | Computes **SSIM** between every frame pair to measure pixel-level structure similarity. | O(n²) | O(1) per pair |
+| **4️. Hybrid Similarity Matrix Construction** | Nested loop building `diff_matrix` | Combines **cosine distance** (ResNet) and **SSIM** into a single metric:<br>`0.3 × cosine_dist + 0.7 × ssim_diff`. | O(n²) | O(n²) |
+| **5️. Frame Sequencing (Greedy Ordering)** | `order_frames_hybrid(diff_matrix)` | Builds initial sequence by selecting next most similar unvisited frame using a greedy traversal. | O(n²) | O(n) |
+| **6️. Local Optimization (2-Opt)** | Inside `order_frames_hybrid()` | Performs local swaps to reduce dissimilarity — improves ordering using **TSP-inspired 2-opt heuristic**. | O(k × n²) | O(n) |
+| **7️. Reverse Detection & Correction** | `auto_correct_direction()` | Compares cosine trends of start–mid–end frames; flips order if sequence appears reversed. | O(1) | O(1) |
+| **8️. Video Reconstruction (Output)** | `cv2.VideoWriter(...)`<br>`for idx in tqdm(ordered_indices):` | Writes ordered frames sequentially to **reconstructed_video.mp4** using OpenCV. | O(n) | O(1) |
+| **9️. Parallelization (Performance Optimization)** | `ThreadPoolExecutor` used in feature extraction & difference computation | Distributes work across threads to achieve ~2–4× speedup during feature and similarity calculation. | ~O(n² / p) | O(n²) |
+
+
+
+### **7. Overall Complexity Summary**
+
+| **Metric** | **Complexity** | **Explanation** |
+|-------------|----------------|-----------------|
+| **Total Time Complexity** | **O(n² + n × F)** | Dominated by pairwise similarity computations and feature extraction. |
+| **Total Space Complexity** | **O(n² + n × feature_size)** | Due to difference matrix and feature embeddings storage. |
+| **Optimized Runtime** | **O(n² / p)** | When using **p threads**, effective computation time reduces significantly. |
+
+
+
+
+
+
+## 8. Results and Observations
 
 | Parameter | Value |
 |------------|--------|
@@ -113,7 +141,7 @@ Minimize  ∑ (1 - Similarity(F_P[i], F_P[i+1]))  for all i = 1 to n-1
 
 
 
-## 7️. Conclusion
+## 9. Conclusion
 
 This algorithm successfully reconstructs jumbled videos by integrating **deep learning-based similarity** with **optimization heuristics**.  
 The hybrid method ensures that both **semantic continuity** and **visual structure** are preserved.  
@@ -133,5 +161,6 @@ It is computationally efficient, requires **no retraining**, and generalizes wel
 
 
 **Repository:** [GitHub Repository Link](https://github.com/your-username/Jumbled-Frames-Reconstruction-Challenge)
+
 
 
