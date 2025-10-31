@@ -187,6 +187,30 @@ Detailed explanation of the reconstruction algorithm and its optimization steps 
 
 
 
+
+
+
+##  **Deliverables**
+
+1. **Reconstructed Video** → `reconstructed_video.mp4`  
+2. **Source Code** → `reconstruct.py`, `requirements.txt`  
+3. **Algorithm Explanation** → `docs/Algorithm-Explanation.md`  
+4. **Execution Time Log** → `execution_log.txt`  
+5. **Public Repository** → Uploaded on GitHub
+
+
+ ##  **Jumbled Video**
+ ```
+https://drive.google.com/file/d/1DbR9yap-vgUaPiI3hCEKUnniXr-TrdOt/view
+```
+
+  ##  **Reconstructed Video**
+```
+https://drive.google.com/file/d/16qNp4ceUp0Mc4r5eZlgsO6hoG9q5uKRN/view?usp=drive_link
+```
+
+
+
 ##  **Author**
 
 **Name:** Marmik Kaila 
@@ -199,15 +223,4 @@ Detailed explanation of the reconstruction algorithm and its optimization steps 
 
 
 **GitHub:** [https://github.com/MarmikKaila](https://github.com/MarmikKaila)
-
-
-
-##  **Deliverables**
-
-1. **Reconstructed Video** → `reconstructed_video.mp4`  
-2. **Source Code** → `reconstruct.py`, `requirements.txt`  
-3. **Algorithm Explanation** → `docs/Algorithm-Explanation.md`  
-4. **Execution Time Log** → `execution_log.txt`  
-5. **Public Repository** → Uploaded on GitHub  
-
 
