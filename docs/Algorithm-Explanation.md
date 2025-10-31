@@ -154,13 +154,14 @@ It is computationally efficient, requires **no retraining**, and generalizes wel
 **Name:** Marmik Kaila
 
 
-**Project:** AI-Based Jumbled Frame Reconstruction
+**Project:** Jumbled Frame Reconstruction Challenge
 
 
 **Goal:** Restore temporal sequence in shuffled videos using AI-driven similarity analysis and optimization.
 
 
 **Repository:** [GitHub Repository Link](https://github.com/your-username/Jumbled-Frames-Reconstruction-Challenge)
+
 
 
 
